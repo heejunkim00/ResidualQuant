@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "looped_transformers"
+version = "0.1.0"
+description = "vLLM model adapters for recurrent Ouro and Huginn"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "vllm==0.10.2",
+  "transformers==4.56.2",
+  "vllm-raven-plugin @ git+https://github.com/seal-rg/recurrent-pretraining.git@1ea7220ec7eb42d13e89db0663df254d0bcdc28e#subdirectory=vllm",
+]
+
+[project.entry-points."vllm.general_plugins"]
+register_looped_transformers = "looped_transformers:register"
+
+[tool.setuptools.packages.find]
+where = ["src"]

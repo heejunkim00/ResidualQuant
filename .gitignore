@@ -1,0 +1,41 @@
+# Python and build outputs
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+*.so
+build/
+dist/
+
+# Local environments and data
+.venv/
+.venv-*/
+.env
+.env.*
+/local-data
+.cache/
+models/
+data
+datasets/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Generated experiment outputs
+artifacts
+checkpoints
+logs
+outputs
+results
+*.log
+nohup.out
+/experiments/uniform_residual_quantization/configs/
+/experiments/bit_schedules/configs/
+/experiments/bit_schedules/reuse.json
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store

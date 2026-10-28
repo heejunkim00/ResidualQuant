@@ -1,0 +1,28 @@
+task: huginn_math500_boxed
+dataset_path: HuggingFaceH4/MATH-500
+dataset_name: default
+output_type: generate_until
+training_split: null
+test_split: test
+process_docs: !function lm_eval.tasks.minerva_math.utils.process_docs
+doc_to_text: !function huginn_math_prompt_utils.doc_to_boxed_final
+doc_to_target: "{{answer if few_shot is undefined else solution}}"
+process_results: !function lm_eval.tasks.minerva_math.utils.process_results
+generation_kwargs:
+  until: ["Problem:"]
+  do_sample: false
+  temperature: 0.0
+  max_gen_toks: 2048
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+  - metric: math_verify
+    aggregation: mean
+    higher_is_better: true
+num_fewshot: 4
+fewshot_config:
+  sampler: first_n
+  samples: !function lm_eval.tasks.minerva_math.utils.list_fewshot_samples
+metadata:
+  version: 3.0

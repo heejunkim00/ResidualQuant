@@ -1,0 +1,268 @@
+{
+  "models": {
+    "ouro": {
+      "name": "ByteDance/Ouro-1.4B",
+      "revision": "e3b1e0993b1231a51d6069a870476dda4162c00a",
+      "loops": 4
+    },
+    "huginn": {
+      "name": "tomg-group-umd/huginn-0125",
+      "revision": "bb6621b65e90b6a4b9b29ef88dc83866d450470c",
+      "loops": 32,
+      "kv_layout": "depth_specific"
+    },
+    "ouro26": {
+      "name": "ByteDance/Ouro-2.6B",
+      "revision": "1ed04250da1a9936042725d302e81c8fa2ab5abd",
+      "loops": 4
+    }
+  },
+  "benchmarks": [
+    {
+      "model": "ouro",
+      "benchmark": "gsm8k",
+      "task": "ouro_gsm8k_rotation",
+      "fewshot": 3,
+      "apply_chat_template": false,
+      "chatml": false,
+      "fewshot_as_multiturn": false,
+      "system_instruction": null,
+      "max_new_tokens": 1024,
+      "code_prompt_function": null,
+      "code_cli_flags": [],
+      "stop": [
+        "Q:",
+        "</s>",
+        "<|im_end|>"
+      ]
+    },
+    {
+      "model": "ouro",
+      "benchmark": "math500",
+      "task": "ouro_math500_rotation",
+      "fewshot": 0,
+      "apply_chat_template": false,
+      "chatml": false,
+      "fewshot_as_multiturn": false,
+      "system_instruction": null,
+      "max_new_tokens": 2048,
+      "code_prompt_function": null,
+      "code_cli_flags": [],
+      "stop": [
+        "Problem:"
+      ]
+    },
+    {
+      "model": "ouro",
+      "benchmark": "humaneval",
+      "task": "humaneval",
+      "fewshot": 0,
+      "apply_chat_template": false,
+      "chatml": false,
+      "fewshot_as_multiturn": false,
+      "system_instruction": null,
+      "max_new_tokens": 1024,
+      "code_prompt_function": "build_prompt",
+      "code_cli_flags": [],
+      "stop": [
+        "<|endoftext|>",
+        "<|endofmask|>",
+        "</s>",
+        "\nif __name__",
+        "\nmain(",
+        "\nprint(",
+        "\n```\n"
+      ]
+    },
+    {
+      "model": "ouro",
+      "benchmark": "mbpp",
+      "task": "mbpp",
+      "fewshot": 0,
+      "apply_chat_template": false,
+      "chatml": false,
+      "fewshot_as_multiturn": false,
+      "system_instruction": null,
+      "max_new_tokens": 2048,
+      "code_prompt_function": "build_prompt",
+      "code_cli_flags": [],
+      "stop": [
+        "<|endoftext|>",
+        "<|endofmask|>",
+        "</s>",
+        "\nif __name__",
+        "\nmain(",
+        "\nprint(",
+        "\n```\n"
+      ]
+    },
+    {
+      "model": "huginn",
+      "benchmark": "gsm8k",
+      "task": "gsm8k_cot",
+      "fewshot": 8,
+      "apply_chat_template": true,
+      "chatml": false,
+      "fewshot_as_multiturn": true,
+      "system_instruction": "You are a helpful assistant that can assist users with mathematical reasoning.",
+      "max_new_tokens": 1024,
+      "code_prompt_function": null,
+      "code_cli_flags": [],
+      "stop": null
+    },
+    {
+      "model": "huginn",
+      "benchmark": "math500",
+      "task": "huginn_math500_boxed",
+      "fewshot": 4,
+      "apply_chat_template": true,
+      "chatml": false,
+      "fewshot_as_multiturn": true,
+      "system_instruction": null,
+      "max_new_tokens": 2048,
+      "code_prompt_function": null,
+      "code_cli_flags": [],
+      "stop": [
+        "Problem:"
+      ]
+    },
+    {
+      "model": "huginn",
+      "benchmark": "humaneval",
+      "task": "humaneval",
+      "fewshot": 0,
+      "apply_chat_template": true,
+      "chatml": false,
+      "fewshot_as_multiturn": false,
+      "system_instruction": null,
+      "max_new_tokens": 1024,
+      "code_prompt_function": "build_chat_prompt",
+      "code_cli_flags": [
+        "--chat-template"
+      ],
+      "stop": [
+        "<|endoftext|>",
+        "<|endofmask|>",
+        "</s>",
+        "\nif __name__",
+        "\nmain(",
+        "\nprint(",
+        "\n```\n"
+      ]
+    },
+    {
+      "model": "huginn",
+      "benchmark": "mbpp",
+      "task": "mbpp",
+      "fewshot": 0,
+      "apply_chat_template": true,
+      "chatml": false,
+      "fewshot_as_multiturn": false,
+      "system_instruction": null,
+      "max_new_tokens": 2048,
+      "code_prompt_function": "build_chat_prompt",
+      "code_cli_flags": [
+        "--chat-template"
+      ],
+      "stop": [
+        "<|endoftext|>",
+        "<|endofmask|>",
+        "</s>",
+        "\nif __name__",
+        "\nmain(",
+        "\nprint(",
+        "\n```\n"
+      ]
+    },
+    {
+      "model": "ouro26",
+      "benchmark": "gsm8k",
+      "task": "ouro_gsm8k_rotation",
+      "fewshot": 3,
+      "apply_chat_template": false,
+      "chatml": false,
+      "fewshot_as_multiturn": false,
+      "system_instruction": null,
+      "max_new_tokens": 1024,
+      "code_prompt_function": null,
+      "code_cli_flags": [],
+      "stop": [
+        "Q:",
+        "</s>",
+        "<|im_end|>"
+      ]
+    },
+    {
+      "model": "ouro26",
+      "benchmark": "math500",
+      "task": "ouro26_math500_rotation",
+      "fewshot": 0,
+      "apply_chat_template": false,
+      "chatml": false,
+      "fewshot_as_multiturn": false,
+      "system_instruction": null,
+      "max_new_tokens": 2048,
+      "code_prompt_function": null,
+      "code_cli_flags": [],
+      "stop": [
+        "Problem:"
+      ],
+      "answer_extraction": "truncate at a line-start Question: or Problem: before Math-Verify; retain raw outputs"
+    },
+    {
+      "model": "ouro26",
+      "benchmark": "humaneval",
+      "task": "humaneval",
+      "fewshot": 0,
+      "apply_chat_template": false,
+      "chatml": false,
+      "fewshot_as_multiturn": false,
+      "system_instruction": null,
+      "max_new_tokens": 1024,
+      "code_prompt_function": "build_prompt",
+      "code_cli_flags": [],
+      "stop": [
+        "<|endoftext|>",
+        "<|endofmask|>",
+        "</s>",
+        "\nif __name__",
+        "\nmain(",
+        "\nprint(",
+        "\n```\n"
+      ]
+    },
+    {
+      "model": "ouro26",
+      "benchmark": "mbpp",
+      "task": "mbpp",
+      "fewshot": 0,
+      "apply_chat_template": false,
+      "chatml": false,
+      "fewshot_as_multiturn": false,
+      "system_instruction": null,
+      "max_new_tokens": 2048,
+      "code_prompt_function": "build_prompt",
+      "code_cli_flags": [],
+      "stop": [
+        "<|endoftext|>",
+        "<|endofmask|>",
+        "</s>",
+        "\nif __name__",
+        "\nmain(",
+        "\nprint(",
+        "\n```\n"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "scripts/run_evalplus_code.py": "50cf8ea4316ebfc3509574d122c3460eea9ce2f23903eb01f498c0756a6b68cd",
+    "configs/eval/tasks/ouro_math_prompt_utils.py": "d47d7533e9de39e634e43bf6345a864f43b5493c51453c8177a9f645c6e8779c",
+    "configs/eval/tasks/ouro_math500_rotation.yaml": "e86ef42084fd653966b9756061907d45a7f8fcd71eb3231dc2d4fa318e8b661a",
+    "configs/eval/tasks/huginn_math_prompt_utils.py": "b99adc278baf02e000d64d214a99a24d3b4ed4b4e1f29d627d18497cd2fcd024",
+    "configs/eval/tasks/huginn_math500_boxed.yaml": "de7862fdd7e92fcb84232172d546b9c77aff08ffde180a95cb368bf84d1c0fdb",
+    "scripts/code_prompt_protocol.py": "7e858818639b45ceae80382d70744c0223662cf4a6514022b0e6b66d0a7ecb40",
+    "scripts/ouro_prompt_protocol.py": "2f19f2a711f004e5ee911f98d29abd2ff28946afb1bb82e643a54097459c137f",
+    "configs/eval/tasks/ouro_gsm8k_rotation.yaml": "374180a235e8f0fa2e42f21b852001856751de02afa004097d4000c59a286e8b",
+    "configs/eval/tasks/ouro26_math500_rotation.yaml": "bade5d37994a96b3e6bf7b621813481fe4039676a96367e86e32ddb8e37df53f"
+  }
+}

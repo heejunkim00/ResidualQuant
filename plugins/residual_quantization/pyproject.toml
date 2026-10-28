@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=77", "wheel", "torch==2.8.0", "ninja>=1.11"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "residual_quantization"
+version = "0.1.0"
+description = "Optional packed KV quantization plugin for recurrent transformers"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "torch==2.8.0",
+  "vllm==0.10.2",
+]
+
+[project.entry-points."vllm.general_plugins"]
+register_residual_quantization = "residual_quantization:register"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv]
+cache-keys = [
+  { file = "pyproject.toml" },
+  { file = "setup.py" },
+  { file = "MANIFEST.in" },
+  { file = "src/**/*.py" },
+  { file = "csrc/**/*" },
+]

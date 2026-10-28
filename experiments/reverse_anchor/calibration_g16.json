@@ -1,0 +1,26 @@
+{
+  "coefficient_method": "ls",
+  "reference_mode": "anchor",
+  "use_rotation": true,
+  "anchor_index": 3,
+  "packed_groups": [
+    [
+      [
+        2,
+        16
+      ],
+      [
+        2,
+        16
+      ],
+      [
+        2,
+        16
+      ],
+      [
+        4,
+        32
+      ]
+    ]
+  ]
+}
